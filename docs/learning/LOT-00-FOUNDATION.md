@@ -102,7 +102,7 @@ Il est acceptable de regrouper ou de scinder ces commits si cela améliore leur 
   - Versions et dépendances techniques à confirmer au LOT 01.
   - Premier modèle de traceur et protocole matériel à sélectionner ultérieurement.
   - Politique détaillée de rétention à définir avant la mise en production.
-- **Commit(s) de référence :** à renseigner après le commit final.
+- **Commit(s) de référence :** `d099926` — `docs: add LOT 00 execution checklist`
 
 ## Définition de terminé
 
