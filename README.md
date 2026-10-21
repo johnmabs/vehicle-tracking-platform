@@ -5,6 +5,7 @@ Plateforme de suivi de véhicules conçue comme projet de portfolio et d'apprent
 ## Vision
 
 Construire un système de tracking GPS de bout en bout, capable de recevoir des positions depuis :
+
 - une application mobile utilisant le GPS du téléphone ;
 - des traceurs GPS physiques communiquant avec le serveur via des protocoles documentés.
 
@@ -21,9 +22,47 @@ Le projet développe son propre moteur GPS. Il ne dépend pas d'un serveur de tr
 
 ## État du projet
 
-**Phase actuelle : LOT 00 — Cadrage et fondations documentaires.**
+**Phase actuelle : LOT 01 — Initialisation technique.**
 
-Aucun moteur GPS ni service applicatif n'est encore considéré comme implémenté. Le développement commence après validation des critères d'acceptation du LOT 00.
+Le LOT 00 a établi le périmètre produit, les orientations architecturales et la feuille de route. Le LOT 01 vise à préparer un environnement de développement reproductible et un premier socle applicatif.
+
+L'API, le moteur GPS et la persistance applicative restent à implémenter et à vérifier. Les fonctionnalités prévues dans la feuille de route ne doivent pas être considérées comme disponibles tant qu'elles n'ont pas été réalisées et validées.
+
+## Prérequis de développement
+
+L'environnement de référence utilise :
+
+| Outil          | Version de référence                                |
+| -------------- | --------------------------------------------------- |
+| Node.js        | 24.22.1                                             |
+| npm            | Version fournie avec l'installation Node.js retenue |
+| Git            | Version récente                                     |
+| Docker         | Version compatible avec Docker Compose              |
+| Docker Compose | Plugin `docker compose`                             |
+
+Node.js est fixé par le fichier `.nvmrc`. Si `nvm` est installé, active la version du projet avec :
+
+```bash
+nvm install
+nvm use
+```
+
+Vérifie ensuite l'environnement :
+
+```bash
+node --version
+npm --version
+git --version
+docker --version
+docker compose version
+docker info
+```
+
+Le fichier `.nvmrc` doit correspondre à la version Node.js de référence documentée ci-dessus.
+
+Sous Windows avec WSL 2, Docker Desktop doit être démarré et l'intégration de la distribution WSL activée.
+
+Les commandes d'installation des dépendances et de lancement de l'application seront ajoutées lorsque le squelette applicatif et ses scripts auront été créés.
 
 ## Documentation
 
@@ -41,7 +80,10 @@ Aucun moteur GPS ni service applicatif n'est encore considéré comme implément
 4. Des décisions d'architecture documentées dans des ADR.
 5. Aucune donnée de localisation réelle ou personnelle dans les fixtures ou dépôts publics.
 6. Ne jamais exposer de secrets, identifiants de traceurs ou jetons dans les journaux.
+7. Toute fonctionnalité annoncée comme terminée doit avoir été vérifiée.
 
 ## Statut des décisions
 
-Les choix de ce cadrage constituent la proposition initiale. Les décisions importantes seront confirmées ou modifiées explicitement dans les ADR.
+Les choix du cadrage initial constituent la proposition de départ. Les décisions importantes seront confirmées ou modifiées explicitement dans les ADR.
+
+Les versions et dépendances réellement utilisées devront rester cohérentes avec les fichiers de configuration et les contrôles automatisés du projet.
