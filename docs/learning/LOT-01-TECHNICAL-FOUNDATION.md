@@ -30,22 +30,27 @@
 
 ### Étape 01.2 — Définir l'organisation du dépôt
 
-- [ ] Choisir une structure de dépôt adaptée aux applications prévues.
-- [ ] Définir l'emplacement de l'API, du futur frontend et de l'application mobile.
+- [x] Choisir une structure de dépôt adaptée aux applications prévues.
+- [x] Définir l'emplacement de l'API, du futur frontend et de l'application mobile.
 - [ ] Définir les règles de nommage et de configuration.
-- [ ] Documenter les décisions structurantes.
+- [x] Documenter les décisions structurantes dans `ADR-0002-REPOSITORY-STRUCTURE.md`.
 
-**Vérification :** chaque répertoire possède une responsabilité claire et la structure ne crée pas de complexité prématurée.
+**Décision enregistrée :** la structure initiale prévoit `apps/api/` pour l'API et `infra/` pour l'infrastructure. Les répertoires web, mobile et packages seront créés lorsqu'ils seront nécessaires.
+
+**Vérification :** structure et responsabilités documentées ; les conventions détaillées de nommage et de configuration restent à définir.
 
 ### Étape 01.3 — Initialiser l'API
 
-- [ ] Initialiser une application NestJS avec TypeScript.
-- [ ] Définir les scripts de développement, de compilation et de test.
-- [ ] Ajouter un endpoint de santé de l'API.
-- [ ] Ajouter un test automatisé de cet endpoint.
-- [ ] Vérifier la compilation et les tests.
+- [x] Initialiser une application NestJS avec TypeScript dans `apps/api/`.
+- [x] Vérifier les scripts de développement, de compilation et de test générés.
+- [x] Ajouter l'endpoint `GET /health`, qui retourne `{"status":"ok"}`.
+- [x] Ajouter un test unitaire et un test E2E pour cet endpoint.
+- [x] Vérifier la compilation, le lint et les tests.
+- [x] Vérifier le démarrage réel et la réponse HTTP de l'endpoint.
 
-**Vérification :** l'API démarre localement, répond au contrôle de santé et ses tests passent.
+**Vérification :** compilation réussie, lint sans avertissement ni erreur, test unitaire et test E2E réussis ; requête HTTP réelle à `GET /health` validée avec le statut `200 OK`.
+
+**Limite actuelle :** ce contrôle confirme que l'API répond ; il ne vérifie pas encore la disponibilité de PostgreSQL.
 
 ### Étape 01.4 — Préparer PostgreSQL et PostGIS
 
