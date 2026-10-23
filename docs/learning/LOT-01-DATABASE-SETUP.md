@@ -144,10 +144,10 @@ supprimer les volumes déclarés par le projet.
 | Tests unitaires de l'API               | Réussis                                   |
 | Build de l'API                          | Réussi                                    |
 | Tests E2E de l'API                      | Réussis                                   |
-| Exécution du workflow GitHub Actions    | En attente du premier contrôle distant    |
+| Exécution du workflow GitHub Actions    | Réussie — exécution nº 1                  |
 
-Les contrôles locaux listés ci-dessus ont réussi. L'exécution de GitHub Actions
-reste à confirmer après publication du workflow sur le dépôt distant.
+Les contrôles locaux listés ci-dessus ont réussi. La première exécution du
+workflow GitHub Actions a également réussi sur le commit 065b04d.
 
 Le LOT 01 ne doit être déclaré terminé qu'après vérification de l'ensemble des
 livrables, de la procédure documentée et du résultat des contrôles distants.
