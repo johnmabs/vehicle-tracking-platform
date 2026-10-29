@@ -54,20 +54,20 @@
 
 ### Étape 01.4 — Préparer PostgreSQL et PostGIS
 
-- [ ] Choisir et fixer une image PostgreSQL compatible avec PostGIS.
-- [ ] Définir les services Docker Compose nécessaires au développement.
-- [ ] Configurer les identifiants par variables d'environnement et fournir un exemple sans secret.
-- [ ] Définir un volume persistant et un contrôle de santé de la base.
-- [ ] Vérifier que l'extension PostGIS est disponible.
-- [ ] Documenter les commandes de démarrage et d'arrêt.
+- [x] Choisir et fixer une image PostgreSQL compatible avec PostGIS.
+- [x] Définir les services Docker Compose nécessaires au développement.
+- [x] Configurer les identifiants par variables d'environnement et fournir un exemple sans secret.
+- [x] Définir un volume persistant et un contrôle de santé de la base.
+- [x] Vérifier que l'extension PostGIS est disponible.
+- [x] Documenter les commandes de démarrage et d'arrêt.
 
 **Vérification :** la base démarre, conserve ses données lors d'un redémarrage et permet de vérifier la disponibilité de PostGIS.
 
 ### Étape 01.5 — Ajouter les contrôles automatisés
 
 - [ ] Définir le formatage et le lint.
-- [ ] Configurer les tests unitaires et d'intégration appropriés au socle initial.
-- [ ] Ajouter une intégration continue pour les vérifications essentielles.
+- [x] Configurer les tests unitaires et d'intégration appropriés au socle initial.
+- [x] Ajouter une intégration continue pour les vérifications essentielles.
 - [ ] Vérifier que les erreurs de compilation ou les tests en échec bloquent la validation.
 
 **Vérification :** les contrôles peuvent être exécutés avec des commandes documentées et échouent lorsqu'une régression est introduite.
