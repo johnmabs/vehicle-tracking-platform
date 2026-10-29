@@ -31,3 +31,6 @@ Thumbs.db
 *.sql.gz
 data/
 backups/
+
+# TypeScript build cache
+*.tsbuildinfo
