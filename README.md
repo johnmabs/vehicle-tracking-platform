@@ -62,7 +62,91 @@ Le fichier `.nvmrc` doit correspondre à la version Node.js de référence docum
 
 Sous Windows avec WSL 2, Docker Desktop doit être démarré et l'intégration de la distribution WSL activée.
 
-Les commandes d'installation des dépendances et de lancement de l'application seront ajoutées lorsque le squelette applicatif et ses scripts auront été créés.
+## Installation et démarrage local
+
+### 1. Préparer la configuration
+
+Depuis la racine du dépôt, crée le fichier local `.env` s'il n'existe pas :
+
+```bash
+if [ ! -f .env ]; then cp .env.example .env; else echo ".env existe déjà : fichier conservé."; fi
+```
+
+Modifie `POSTGRES_PASSWORD` dans `.env` avec un mot de passe réservé au développement local. Ne partage pas ce fichier et ne l'ajoute jamais à Git.
+
+Si le port `5432` est déjà utilisé, modifie `POSTGRES_PORT` dans `.env`.
+
+### 2. Installer les dépendances de l'API
+
+Active la version Node.js indiquée dans `.nvmrc`, puis installe les dépendances verrouillées par le projet :
+
+```bash
+nvm install
+nvm use
+cd apps/api
+npm ci
+cd ../..
+```
+
+Si tu n'utilises pas `nvm`, installe et active manuellement la version Node.js de référence.
+
+### 3. Démarrer PostgreSQL et PostGIS
+
+Depuis la racine du dépôt :
+
+```bash
+docker compose --env-file .env -f infra/compose.yaml up -d db
+docker compose --env-file .env -f infra/compose.yaml ps
+```
+
+Attends que le service `db` soit indiqué comme `healthy`.
+
+### 4. Démarrer l'API
+
+Dans un premier terminal :
+
+```bash
+cd apps/api
+npm run start:dev
+```
+
+L'API écoute par défaut sur le port `3000`. Pour le vérifier, ouvre `http://localhost:3000/health`. La réponse attendue est :
+
+```json
+{ "status": "ok" }
+```
+
+À ce stade, `/health` vérifie que l'API répond ; il ne confirme pas la connexion à PostgreSQL. La connexion entre l'API et la base reste à implémenter.
+
+### 5. Exécuter les contrôles
+
+Dans un autre terminal :
+
+```bash
+cd apps/api
+npm run lint
+npm test -- --runInBand
+npm run build
+npm run test:e2e -- --runInBand
+```
+
+### 6. Arrêter les services
+
+Arrête l'API avec `Ctrl+C` dans son terminal. Puis, depuis la racine du dépôt, arrête la base sans supprimer ses données :
+
+```bash
+docker compose --env-file .env -f infra/compose.yaml stop db
+```
+
+Pour redémarrer la base ultérieurement :
+
+```bash
+docker compose --env-file .env -f infra/compose.yaml start db
+```
+
+Évite `docker compose down -v` pour un arrêt courant : cette commande peut supprimer les volumes persistants du projet.
+
+Ces instructions décrivent l'environnement local de développement, pas un déploiement de production.
 
 ## Documentation
 
