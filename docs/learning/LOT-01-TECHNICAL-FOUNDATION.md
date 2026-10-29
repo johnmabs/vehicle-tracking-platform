@@ -65,7 +65,7 @@
 
 ### Étape 01.5 — Ajouter les contrôles automatisés
 
-- [ ] Définir le formatage et le lint.
+- [x] Définir le formatage et le lint.
 - [x] Configurer les tests unitaires et d'intégration appropriés au socle initial.
 - [x] Ajouter une intégration continue pour les vérifications essentielles.
 - [ ] Vérifier que les erreurs de compilation ou les tests en échec bloquent la validation.
