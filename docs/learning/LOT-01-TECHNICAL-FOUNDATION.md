@@ -37,7 +37,7 @@
 
 **Décision enregistrée :** la structure initiale prévoit `apps/api/` pour l'API et `infra/` pour l'infrastructure. Les répertoires web, mobile et packages seront créés lorsqu'ils seront nécessaires.
 
-**Vérification :** structure et responsabilités documentées ; les conventions détaillées de nommage et de configuration restent à définir.
+**Vérification :** structure et responsabilités documentées ; conventions détaillées définies dans CODE-AND-CONFIGURATION-CONVENTIONS.md.
 
 ### Étape 01.3 — Initialiser l'API
 
