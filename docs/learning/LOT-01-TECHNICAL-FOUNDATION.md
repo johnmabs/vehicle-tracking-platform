@@ -32,7 +32,7 @@
 
 - [x] Choisir une structure de dépôt adaptée aux applications prévues.
 - [x] Définir l'emplacement de l'API, du futur frontend et de l'application mobile.
-- [ ] Définir les règles de nommage et de configuration.
+- [x] Définir les règles de nommage et de configuration.
 - [x] Documenter les décisions structurantes dans `ADR-0002-REPOSITORY-STRUCTURE.md`.
 
 **Décision enregistrée :** la structure initiale prévoit `apps/api/` pour l'API et `infra/` pour l'infrastructure. Les répertoires web, mobile et packages seront créés lorsqu'ils seront nécessaires.
